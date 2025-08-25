@@ -42,33 +42,33 @@ Yield-Vault is a sophisticated yield farming aggregator that pools user funds in
 
 ```clarity
 ;; Deposit STX into a vault
-(contract-call? .stacksyield deposit u1 u1000000) ;; Vault 1, 1 STX
+(contract-call? .yieldvault deposit u1 u1000000) ;; Vault 1, 1 STX
 
 ;; Withdraw shares from vault
-(contract-call? .stacksyield withdraw u1 u500000) ;; Vault 1, 0.5 shares
+(contract-call? .yieldvault withdraw u1 u500000) ;; Vault 1, 0.5 shares
 
 ;; Manually trigger yield harvest
-(contract-call? .stacksyield harvest-vault u1)
+(contract-call? .yieldvault harvest-vault u1)
 ```
 
 ### Vault Management (Admin)
 
 ```clarity
 ;; Create new yield vault
-(contract-call? .stacksyield create-vault
+(contract-call? .yieldvault create-vault
     "Conservative STX Vault"
     u1          ;; Risk level: 1=conservative
     u1000000)   ;; Minimum 1 STX deposit
 
 ;; Rebalance vault to better strategy
-(contract-call? .stacksyield rebalance-vault u1 u3) ;; Switch to strategy 3
+(contract-call? .yieldvault rebalance-vault u1 u3) ;; Switch to strategy 3
 ```
 
 ### Strategy Management (Admin)
 
 ```clarity
 ;; Add new yield strategy
-(contract-call? .stacksyield add-strategy
+(contract-call? .yieldvault add-strategy
     "New DeFi Protocol"
     "protocol-name"
     u2000       ;; 20% APY
@@ -77,7 +77,7 @@ Yield-Vault is a sophisticated yield farming aggregator that pools user funds in
     'SP123...)  ;; Protocol contract address
 
 ;; Update strategy APY
-(contract-call? .stacksyield update-strategy-apy u1 u1300) ;; Update to 13%
+(contract-call? .yieldvault update-strategy-apy u1 u1300) ;; Update to 13%
 ```
 
 ## Vault Risk Levels
