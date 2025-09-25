@@ -254,7 +254,7 @@
         ;; Create vault
         (map-set vaults vault-id {
             name: name,
-            asset: .stx-token, ;; Default to STX
+            asset: tx-sender, ;; Use tx-sender as placeholder for STX
             total-shares: u0,
             total-assets: u0,
             strategy-id: best-strategy,
